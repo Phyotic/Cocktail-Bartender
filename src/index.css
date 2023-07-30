@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: "Nunito", sans-serif;
+    --charcoal: #264653;
+    --persian-green: #2a9d8f;
+    --saffron: #e9c46a;
+    --sandy-brown: #f4a261;
+    --burnt-sienna: #e76f51;
+}
+
+body {
+}
