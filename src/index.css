@@ -13,5 +13,158 @@
     --burnt-sienna: #e76f51;
 }
 
+#root {
+    overflow: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
+    background-color: black;
+}
+
+/* == Utility Classes == */
+
+.choice-words {
+    font-size: 3rem;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    color: white;
+}
+
+.choice-words:hover {
+    transform: scale(1.5);
+}
+
+/* Animations */
+
+@keyframes bounce {
+    0% {
+        bottom: -10px;
+    }
+    50% {
+        bottom: 30px;
+    }
+    100% {
+        bottom: -10px;
+    }
+}
+
+.animate-bounce {
+    animation-name: bounce;
+    animation-duration: 2s;
+    animation-fill-mode: backwards;
+    animation-iteration-count: infinite;
+}
+
+/* == Hero Image Section == */
+#hero-image {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+
+    background-image: url(/src/assets/drinks_2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    opacity: 0.7;
+
+    text-align: center;
+}
+
+#hero-image h1 {
+    width: 100%;
+    font-size: 3rem;
+    padding: 10% 10% 0.5%;
+    font-weight: 900;
+    /* text-shadow: 1px 1px 1px white; */
+}
+
+#arrow-pointer-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#arrow-pointer-content {
+    margin-top: auto;
+}
+
+#arrow-pointer-content h2 {
+    padding: 40% 0;
+    font-size: 2rem;
+    /* text-shadow: 1px 1px 1px white; */
+    font-weight: 900;
+}
+
+#arrow-pointer-content img {
+    position: relative;
+}
+
+/* == Bottom Section == */
+
+#bottom-section {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+
+    background-color: black;
+}
+
+#random-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+
+    background-image: url(/src/assets/drinks_3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 40% 50%;
+
+    transition: all 0.1s ease-in-out;
+    background-color: black;
+}
+
+#random-section:hover {
+    border-radius: 50%;
+    border-style: inset;
+}
+
+#search-section {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url(/src/assets/drink_6.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+
+    transition: all 0.1s ease-in-out;
+}
+
+#search-section:hover {
+    border-radius: 50%;
+    border-style: inset;
+}
+
+#search-section h1 {
+    color: black;
+}
+
+@media screen and (min-width: 600px) {
+    #hero-image h1 {
+        font-size: 6rem;
+    }
+
+    #arrow-pointer-content h2 {
+        font-size: 3rem;
+        padding: 10%;
+    }
 }
