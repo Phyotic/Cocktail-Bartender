@@ -1,3 +1,7 @@
+import RandomChoice from "./components/RandomChoice";
+import SearchChoice from "./components/SearchChoice";
+import "./index.css";
+
 function App() {
     return (
         <>
@@ -21,11 +25,12 @@ function App() {
             </section>
 
             <section id="bottom-section">
-                <section id="random-section">
-                    <h1 className="choice-words">Random</h1>
+                <section id="left">
+                    <RandomChoice />
                 </section>
-                <section id="search-section">
-                    <h1 className="choice-words">Search</h1>
+
+                <section id="right">
+                    <SearchChoice />
                 </section>
             </section>
         </>
