@@ -1,0 +1,22 @@
+#search-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url(/src/assets/drink_6.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+
+    transition: all 0.1s ease-in-out;
+}
+
+/* #search-section:hover {
+    border-radius: 50%;
+    border-style: inset;
+} */
+
+#search-section h1 {
+    color: black;
+}

@@ -1,8 +1,6 @@
-import RandomChoice from "./components/RandomChoice";
-import SearchChoice from "./components/SearchChoice";
-import "./index.css";
+import ContentPage from "./components/ContentPage/ContentPage";
 
-function App() {
+export default function App() {
     return (
         <>
             <section id="hero-image">
@@ -25,16 +23,8 @@ function App() {
             </section>
 
             <section id="bottom-section">
-                <section id="left">
-                    <RandomChoice />
-                </section>
-
-                <section id="right">
-                    <SearchChoice />
-                </section>
+                <ContentPage />
             </section>
         </>
     );
 }
-
-export default App;
