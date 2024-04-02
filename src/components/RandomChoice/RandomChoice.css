@@ -13,6 +13,23 @@
     background-color: black;
 }
 
+#random-section-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    background-image: url(/src/assets/drinks_3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 40% 50%;
+
+    transition: all 0.1s ease-in-out;
+    background-color: black;
+
+    flex-direction: column;
+}
+
 /* #random-section:hover {
     border-radius: 50%;
     border-style: inset;
@@ -21,4 +38,14 @@
 #random-drink {
     background-color: transparent;
     border: none;
+}
+
+#random-drink-button {
+    padding: 1%;
+    font-size: 1.5rem;
+    color: white;
+    background-color: black;
+    /* border-style: none; */
+    border-color: white;
+    border-width: 5px;
 }
