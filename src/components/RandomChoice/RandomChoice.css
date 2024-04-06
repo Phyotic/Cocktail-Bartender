@@ -17,8 +17,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-
     background-image: url(/src/assets/drinks_3.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -28,6 +26,8 @@
     background-color: black;
 
     flex-direction: column;
+    padding: 3% 0%;
+    overflow: hidden;
 }
 
 /* #random-section:hover {
@@ -45,7 +45,6 @@
     font-size: 1.5rem;
     color: white;
     background-color: black;
-    /* border-style: none; */
     border-color: white;
     border-width: 5px;
 }

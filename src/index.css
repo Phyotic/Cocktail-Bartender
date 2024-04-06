@@ -98,7 +98,6 @@ body {
     font-size: 3rem;
     padding: 10% 10% 0.5%;
     font-weight: 900;
-    /* text-shadow: 1px 1px 1px white; */
 }
 
 #arrow-pointer-container {
@@ -115,7 +114,6 @@ body {
 #arrow-pointer-content h2 {
     padding: 40% 0;
     font-size: 2rem;
-    /* text-shadow: 1px 1px 1px white; */
     font-weight: 900;
 }
 
@@ -128,9 +126,10 @@ body {
 #bottom-section {
     display: flex;
     flex-direction: row;
-    min-height: 100vh;
+    height: 100vh;
 
     background-color: black;
+    overflow: hidden;
 }
 
 @media screen and (min-width: 600px) {
