@@ -1,7 +1,7 @@
 import { FOCUSTYPE } from "../ContentPage/ContentPage";
 import RandomChoiceProps from "./RandomChoiceProps";
 import "./RandomChoice.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import DrinkCard from "../DrinkCard/DrinkCard";
 
@@ -13,6 +13,14 @@ export default function RandomChoice({
     let [isShowingDrink, setShowingDrink] = useState<boolean>(false);
     let [randomDrink, setRandomDrink] = useState<Drink | null>(null);
 
+    //Set the background image of the random section card to the blurred drink image.
+    useEffect(() => {
+        let element = document.getElementById("drink-background-image");
+        element != null && randomDrink !== null
+            ? (element.style.backgroundImage = "url('" + randomDrink.strDrinkThumb + "')")
+            : "";
+    }, [randomDrink]);
+
     /*
      * Fetch a random drink. Set this component as the main focus of the container on the page.
      */
@@ -21,9 +29,8 @@ export default function RandomChoice({
             const response = await axios.get(
                 "https://www.thecocktaildb.com/api/json/v1/1/random.php"
             );
+
             setRandomDrink(response.data.drinks[0]);
-            console.log("RandomDrink: ");
-            console.log(randomDrink);
 
             if (side != focusSide) {
                 setFocusSide(side);
@@ -55,16 +62,20 @@ export default function RandomChoice({
     }
 
     return isShowingDrink ? (
-        <section id="random-section-card" className={focusState}>
-            <DrinkCard drink={randomDrink} />
+        <section id="random-section-card">
+            <img id="drink-background-image" />
 
-            <button
-                id="random-drink-button"
-                className={buttonState}
-                onClick={() => fetchRandomDrink()}
-            >
-                New Random Drink
-            </button>
+            <section id="random-section-content" className={focusState}>
+                <DrinkCard drink={randomDrink} />
+
+                <button
+                    id="random-drink-button"
+                    className={buttonState}
+                    onClick={() => fetchRandomDrink()}
+                >
+                    New Random Drink
+                </button>
+            </section>
         </section>
     ) : (
         <section id="random-section" className={focusState}>
