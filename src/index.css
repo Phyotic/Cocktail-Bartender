@@ -28,32 +28,21 @@ body {
 /* == Utility Classes == */
 
 .neutral-choice-button {
+    letter-spacing: 0.5rem;
     font-size: 3rem;
     cursor: pointer;
-    transition: all 0.1s ease-in-out;
+    transition: transform 1s;
     color: white;
+    border: none;
+    background-color: transparent;
+    opacity: 0.7;
+    padding: 10px;
 }
 
 .neutral-choice-button:hover {
-    transform: scale(1.5);
-}
-
-.focused-choice-button {
-}
-
-.minimized-choice-button {
-}
-
-.neutral-bottom-section {
-    width: 50%;
-}
-
-.focused-bottom-section {
-    width: 90%;
-}
-
-.minimized-bottom-section {
-    width: 10%;
+    transform: scale(1.1);
+    opacity: 1;
+    box-shadow: 10px 10px 30px black;
 }
 
 /* Animations */

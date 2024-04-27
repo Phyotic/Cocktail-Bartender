@@ -39,9 +39,6 @@ export default function SearchChoice({
             >
                 Search
             </button>
-            {/* <h1 id="search-drink" className="choice-words">
-                Search
-            </h1> */}
         </section>
     );
 }

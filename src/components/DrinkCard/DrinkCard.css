@@ -4,7 +4,7 @@
     color: white;
     font-size: 4rem;
     width: 100%;
-    padding: 0 10%;
+    padding: 0 5%;
     max-height: 90vh;
     overflow: hidden;
 }
@@ -45,8 +45,7 @@ picture {
     flex-basis: 50%;
     line-height: 1.5;
     padding-left: 2%;
-    align-items: center;
-    justify-content: center;
+    align-self: center;
     font-weight: 700;
     height: 100%;
     overflow: auto;
@@ -59,7 +58,7 @@ ul {
 }
 
 .ingredient {
-    font-size: 3.5rem;
+    font-size: 3.1rem;
 }
 
 li {

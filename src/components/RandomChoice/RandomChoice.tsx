@@ -62,10 +62,10 @@ export default function RandomChoice({
     }
 
     return isShowingDrink ? (
-        <section id="random-section-card">
+        <section id="random-section" className={focusState}>
             <img id="drink-background-image" />
 
-            <section id="random-section-content" className={focusState}>
+            <section id="random-section-content">
                 <DrinkCard drink={randomDrink} />
 
                 <button
