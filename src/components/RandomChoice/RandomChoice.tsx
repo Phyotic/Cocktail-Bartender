@@ -59,9 +59,12 @@ export default function RandomChoice({
         buttonState = "neutral-choice-button";
     } else {
         buttonState = "minimized-choice-button";
-        // setShowingDrink(false);
     }
 
+    /*
+        If showing a drink and this has focus, display the drink card info.
+        Otherwise, display a neutral state.
+    */
     return isShowingDrink && side == focusSide ? (
         <section id="random-section" className={focusState}>
             <img id="drink-background-image" />

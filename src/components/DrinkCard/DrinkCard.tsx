@@ -4,8 +4,8 @@ export default function DrinkCard({ drink }: { drink: Drink | null }) {
     if (drink == null) {
         return (
             <>
-                <section>
-                    <p> Passed drink info is null</p>
+                <section id="no-drink-selected">
+                    <p> Search For A Drink</p>
                 </section>
             </>
         );
