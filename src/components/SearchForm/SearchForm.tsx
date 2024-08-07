@@ -11,12 +11,12 @@ export default function SearchForm({ buttonState, setSearchedDrinks }: SearchFor
     //Form data values
     let [userInput, setUserInput] = useState<FormData>({ drinkName: "" });
 
-    //onSubmit handler
+    //onSubmit handler, set a default of margarita if empty.
     function handleOnSubmit(event: SyntheticEvent) {
         event.preventDefault();
         let name: string = userInput.drinkName;
         if (name.length == 0) {
-            name = "error";
+            name = "margarita";
         }
         searchForDrink(name);
     }
@@ -28,11 +28,8 @@ export default function SearchForm({ buttonState, setSearchedDrinks }: SearchFor
                 "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + name
             );
 
-            console.log("success");
-            console.log(response);
             setSearchedDrinks(response.data.drinks);
         } catch (e) {
-            console.log("error");
             console.log(e);
         }
     }

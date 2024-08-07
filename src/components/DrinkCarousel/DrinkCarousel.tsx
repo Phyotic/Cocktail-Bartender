@@ -7,6 +7,7 @@ export default function DrinkCarousel({ drinks }: DrinkCarouselProps) {
     //Pointer to current drink in the drinks list.
     let [currentDrinkIndex, setCurrentDrinkIndex] = useState<number | null>(null);
 
+    //Reset the pointer to the drinks list if possible, otherwise it is null.
     useEffect(() => {
         if (drinks != null && drinks.length != 0) {
             setCurrentDrinkIndex(0);

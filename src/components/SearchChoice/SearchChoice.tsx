@@ -2,9 +2,7 @@ import { useState } from "react";
 import { FOCUSTYPE } from "../ContentPage/ContentPage";
 import RandomChoiceProps from "../RandomChoice/RandomChoiceProps";
 import "./SearchChoice.css";
-import DrinkCard from "../DrinkCard/DrinkCard";
 import SearchForm from "../SearchForm/SearchForm";
-import axios from "axios";
 import DrinkCarousel from "../DrinkCarousel/DrinkCarousel";
 
 export default function SearchChoice({

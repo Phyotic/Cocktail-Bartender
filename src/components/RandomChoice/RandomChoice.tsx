@@ -13,7 +13,7 @@ export default function RandomChoice({
     let [isShowingDrink, setShowingDrink] = useState<boolean>(false);
     let [randomDrink, setRandomDrink] = useState<Drink | null>(null);
 
-    //Set the background image of the random section card to the blurred drink image.
+    //Set the background image of the random section card to a blurred drink image.
     useEffect(() => {
         let element = document.getElementById("drink-background-image");
 
@@ -22,9 +22,7 @@ export default function RandomChoice({
             : "";
     }, [randomDrink]);
 
-    /*
-     * Fetch a random drink. Set this component as the main focus of the container on the page.
-     */
+    // Fetch a random drink. Set this component as the main focus of the container on the page.
     async function fetchRandomDrink(): Promise<void> {
         try {
             const response = await axios.get(
