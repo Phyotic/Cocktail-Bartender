@@ -16,6 +16,21 @@ export default function DrinkCarousel({ drinks }: DrinkCarouselProps) {
         }
     }, [drinks]);
 
+    //Set a blurry background of drink.
+    useEffect(() => {
+        if (currentDrinkIndex != null) {
+            let curDrinkThumb: string = drinks[currentDrinkIndex].strDrinkThumb;
+            // console.log(curDrinkThumb);
+            let element: HTMLElement | null = document.getElementById(
+                "drink-background-blur"
+            );
+
+            if (element != null) {
+                element.style.backgroundImage = "url('" + curDrinkThumb + "')";
+            }
+        }
+    }, [currentDrinkIndex]);
+
     //The different directions to go through.
     enum Direction {
         LEFT,
@@ -25,7 +40,6 @@ export default function DrinkCarousel({ drinks }: DrinkCarouselProps) {
     //Set the current drink index based on direction.
     function handleButtonClick(dir: Direction) {
         if (dir == Direction.LEFT) {
-            console.log("Previous drink");
             if (currentDrinkIndex == 0) {
                 setCurrentDrinkIndex(drinks.length - 1);
             } else {
@@ -38,7 +52,6 @@ export default function DrinkCarousel({ drinks }: DrinkCarouselProps) {
                 });
             }
         } else if (dir == Direction.RIGHT) {
-            console.log("Next drink");
             if (currentDrinkIndex == drinks.length - 1) {
                 setCurrentDrinkIndex(0);
             } else {
@@ -60,18 +73,26 @@ export default function DrinkCarousel({ drinks }: DrinkCarouselProps) {
     ) : (
         <>
             <div className="container">
+                {/* <div className="drink-background-blur-container"> */}
+                <div id="drink-background-blur"></div>
+                {/* </div> */}
                 <button
                     id="previous-drink-button"
+                    className="cycle-button"
                     onClick={() => handleButtonClick(Direction.LEFT)}
                 >
-                    &lt;
+                    <img className="flipped" src="src\assets\arrow-navigation.svg" />
                 </button>
-                <DrinkCard drink={drinks[currentDrinkIndex]} />
+
+                <div className="drink-card-container">
+                    <DrinkCard drink={drinks[currentDrinkIndex]} />
+                </div>
                 <button
                     id="next-drink-button"
+                    className="cycle-button"
                     onClick={() => handleButtonClick(Direction.RIGHT)}
                 >
-                    &gt;
+                    <img src="src\assets\arrow-navigation.svg" />
                 </button>
             </div>
         </>

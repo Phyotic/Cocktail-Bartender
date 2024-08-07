@@ -15,7 +15,9 @@ export default function RandomChoice({
 
     //Set the background image of the random section card to a blurred drink image.
     useEffect(() => {
-        let element = document.getElementById("drink-background-image");
+        let element: HTMLElement | null = document.getElementById(
+            "drink-background-image"
+        );
 
         element != null && randomDrink !== null
             ? (element.style.backgroundImage = "url('" + randomDrink.strDrinkThumb + "')")
