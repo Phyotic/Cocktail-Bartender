@@ -1,37 +1,61 @@
-import axios from "axios";
 import SearchFormProps from "./SearchFormProps";
 import { SyntheticEvent, useState } from "react";
 import "./SearchForm.css";
+import axios from "axios";
 
-export default function SearchForm({
-    buttonState,
-    searchedDrink,
-    isShowingDrink,
-}: SearchFormProps) {
-    let [userInput, setUserInput] = useState<string>("");
+interface FormData {
+    drinkName: string;
+}
 
-    function handleSearchDrinkButtonClick(event: SyntheticEvent) {
+export default function SearchForm({ buttonState, setSearchedDrinks }: SearchFormProps) {
+    //Form data values
+    let [userInput, setUserInput] = useState<FormData>({ drinkName: "" });
+
+    //onSubmit handler
+    function handleOnSubmit(event: SyntheticEvent) {
         event.preventDefault();
-        console.log(event);
+        let name: string = userInput.drinkName;
+        if (name.length == 0) {
+            name = "error";
+        }
+        searchForDrink(name);
     }
 
-    // async function fetchSearchDrink(event: SyntheticEvent): Promise<void> {
-    //     try {
-    //         const response = await axios.get(event.target)
-    //     }
-    // }
+    //Search for the specified drink and set the drinks list to the response.
+    async function searchForDrink(name: string): Promise<void> {
+        try {
+            const response = await axios.get(
+                "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + name
+            );
+
+            console.log("success");
+            console.log(response);
+            setSearchedDrinks(response.data.drinks);
+        } catch (e) {
+            console.log("error");
+            console.log(e);
+        }
+    }
 
     return (
         <>
-            <form>
+            <form
+                id="search-form"
+                onSubmit={(event) => {
+                    handleOnSubmit(event);
+                }}
+            >
                 <div className="input-label-pair">
                     <label htmlFor="search-drink-name">Drink Name</label>
                     <input
+                        type="text"
                         id="search-drink-name"
                         placeholder="Margarita"
-                        onChange={(e) => setUserInput(e.target.value)}
-                        value={userInput}
-                        name="search-drink-name"
+                        onChange={(e) =>
+                            setUserInput({ ...userInput, drinkName: e.target.value })
+                        }
+                        value={userInput.drinkName}
+                        name="searchDrinkName"
                     ></input>
                 </div>
 
@@ -40,9 +64,6 @@ export default function SearchForm({
                     value="Search"
                     id="search-drink-button"
                     className={buttonState}
-                    onClick={(event) => {
-                        handleSearchDrinkButtonClick(event);
-                    }}
                 />
             </form>
         </>

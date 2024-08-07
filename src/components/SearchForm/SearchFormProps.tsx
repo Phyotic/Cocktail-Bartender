@@ -1,5 +1,6 @@
+import { Dispatch, SetStateAction } from "react";
+
 export default interface SearchFormProps {
     buttonState: string;
-    searchedDrink: Drink | null;
-    isShowingDrink: boolean;
+    setSearchedDrinks: Dispatch<SetStateAction<Drink[]>>;
 }

@@ -5,14 +5,14 @@ export default function DrinkCard({ drink }: { drink: Drink | null }) {
         return (
             <>
                 <section id="no-drink-selected">
-                    <p> Search For A Drink</p>
+                    <p> No Drink Selected</p>
                 </section>
             </>
         );
     }
 
-    let name = drink.strDrink;
-    let ingredients = [];
+    let name: string = drink.strDrink;
+    let ingredients: string[] = [];
 
     let strIng = "strIngredient";
     for (let i = 1; i <= 15; i++) {
@@ -23,12 +23,12 @@ export default function DrinkCard({ drink }: { drink: Drink | null }) {
             break;
         }
 
-        ingredients.push(value);
+        if (!ingredients.includes(value)) {
+            ingredients.push(value);
+        }
     }
 
     let imageURL = drink.strDrinkThumb;
-
-    console.log(name);
 
     return (
         <>

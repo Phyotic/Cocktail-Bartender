@@ -22,11 +22,11 @@
     align-items: center;
 
     /*TODO: Edit background*/
-    /* background-image: url(/src/assets/drink_6.jpg); */
+    background-image: url(/src/assets/drink_6.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    background-color: gray;
+    background-color: transparent;
     transition: all 0.3s ease-in-out;
 }
 

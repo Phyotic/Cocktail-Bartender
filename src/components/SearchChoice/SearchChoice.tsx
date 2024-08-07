@@ -4,22 +4,16 @@ import RandomChoiceProps from "../RandomChoice/RandomChoiceProps";
 import "./SearchChoice.css";
 import DrinkCard from "../DrinkCard/DrinkCard";
 import SearchForm from "../SearchForm/SearchForm";
+import axios from "axios";
+import DrinkCarousel from "../DrinkCarousel/DrinkCarousel";
 
 export default function SearchChoice({
     side,
     focusSide,
     setFocusSide,
 }: RandomChoiceProps) {
-    //Flag that indicates whether a drink is currently being displayed.
-    let [isShowingDrink, setShowingDrink] = useState<boolean>(false);
-    let [searchedDrink, setSearchedDrink] = useState<Drink | null>(null);
-
-    //Method that is called when the search button in the form is called.
-    //TODO: complete it.
-    function searchForDrink(): void {
-        side == focusSide ? setFocusSide(FOCUSTYPE.NONE) : setFocusSide(side);
-        // setShowingDrink(true);
-    }
+    //All drinks returned from the search.
+    let [searchedDrinks, setSearchedDrinks] = useState<Drink[]>([]);
 
     //Evaluates whether this component has focus.
     let focusState: string = FOCUSTYPE.NONE;
@@ -40,16 +34,12 @@ export default function SearchChoice({
         buttonState = "minimized-choice-button";
     }
 
-    //If this side has focus, display the form and the drink card
+    //If this side has focus, display the form and the drink carousel
     return side == focusSide ? (
         <section id="search-section-with-drink-card" className={focusState}>
-            <SearchForm
-                buttonState={buttonState}
-                searchedDrink={searchedDrink}
-                isShowingDrink={isShowingDrink}
-            />
+            <SearchForm buttonState={buttonState} setSearchedDrinks={setSearchedDrinks} />
 
-            <DrinkCard drink={searchedDrink} />
+            <DrinkCarousel drinks={searchedDrinks} />
         </section>
     ) : (
         <section id="search-section" className={focusState}>
