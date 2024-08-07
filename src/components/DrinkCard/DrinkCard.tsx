@@ -1,6 +1,11 @@
 import "./DrinkCard.css";
 
+//API magic numbers/variables.
+const STR_INGREDIENT_PREFIX: string = "strIngredient";
+const STR_INGREDIENT_COUNT: number = 15;
+
 export default function DrinkCard({ drink }: { drink: Drink | null }) {
+    //Check for a null drink.
     if (drink == null) {
         return (
             <>
@@ -11,13 +16,15 @@ export default function DrinkCard({ drink }: { drink: Drink | null }) {
         );
     }
 
+    //Drink name and ingredients list.
     let name: string = drink.strDrink;
     let ingredients: string[] = [];
 
-    let strIng = "strIngredient";
-    for (let i = 1; i <= 15; i++) {
-        let ingProp = strIng + i;
-        let value = drink[ingProp as keyof Drink];
+    //Retrieve all ingredients from passed drink and push into list.
+    let strIng: string = STR_INGREDIENT_PREFIX;
+    for (let i = 1; i <= STR_INGREDIENT_COUNT; i++) {
+        let ingProp: string = strIng + i;
+        let value: string | null = drink[ingProp as keyof Drink];
 
         if (value === null) {
             break;
@@ -28,7 +35,8 @@ export default function DrinkCard({ drink }: { drink: Drink | null }) {
         }
     }
 
-    let imageURL = drink.strDrinkThumb;
+    //Retrieve image thumbnail url.
+    let imageURL: string = drink.strDrinkThumb;
 
     return (
         <>
