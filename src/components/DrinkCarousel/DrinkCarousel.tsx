@@ -67,15 +67,13 @@ export default function DrinkCarousel({ drinks }: DrinkCarouselProps) {
     }
 
     return currentDrinkIndex == null ? (
-        <div>
+        <div className="no-drink-container">
             <p> No Drink</p>
         </div>
     ) : (
         <>
             <div className="container">
-                {/* <div className="drink-background-blur-container"> */}
                 <div id="drink-background-blur"></div>
-                {/* </div> */}
                 <button
                     id="previous-drink-button"
                     className="cycle-button"
