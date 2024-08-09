@@ -20,6 +20,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 2;
 
     /*TODO: Edit background*/
     background-image: url(/src/assets/drink_6.jpg);

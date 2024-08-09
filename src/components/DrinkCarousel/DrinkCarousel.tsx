@@ -68,7 +68,7 @@ export default function DrinkCarousel({ drinks }: DrinkCarouselProps) {
 
     return currentDrinkIndex == null ? (
         <div className="no-drink-container">
-            <p> No Drink</p>
+            <p> No Drink Selected</p>
         </div>
     ) : (
         <>
