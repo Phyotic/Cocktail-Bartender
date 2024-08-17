@@ -3,6 +3,9 @@ import { SyntheticEvent, useState } from "react";
 import "./SearchForm.css";
 import axios from "axios";
 
+const API_SEARCH_DRINK_URL: string =
+    "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
+
 interface FormData {
     drinkName: string;
 }
@@ -24,9 +27,7 @@ export default function SearchForm({ buttonState, setSearchedDrinks }: SearchFor
     //Search for the specified drink and set the drinks list to the response.
     async function searchForDrink(name: string): Promise<void> {
         try {
-            const response = await axios.get(
-                "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + name
-            );
+            const response = await axios.get(API_SEARCH_DRINK_URL + name);
 
             setSearchedDrinks(response.data.drinks);
         } catch (e) {
@@ -37,7 +38,6 @@ export default function SearchForm({ buttonState, setSearchedDrinks }: SearchFor
     return (
         <>
             <form
-                id="search-form"
                 onSubmit={(event) => {
                     handleOnSubmit(event);
                 }}
@@ -46,7 +46,6 @@ export default function SearchForm({ buttonState, setSearchedDrinks }: SearchFor
                     <label htmlFor="search-drink-name">Drink Name</label>
                     <input
                         type="text"
-                        id="search-drink-name"
                         placeholder="Margarita"
                         onChange={(e) =>
                             setUserInput({ ...userInput, drinkName: e.target.value })
@@ -56,12 +55,7 @@ export default function SearchForm({ buttonState, setSearchedDrinks }: SearchFor
                     ></input>
                 </div>
 
-                <input
-                    type="submit"
-                    value="Search"
-                    id="search-drink-button"
-                    className={buttonState}
-                />
+                <input type="submit" value="Search" className={buttonState} />
             </form>
         </>
     );

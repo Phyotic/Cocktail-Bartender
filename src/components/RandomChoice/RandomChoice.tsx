@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import DrinkCard from "../DrinkCard/DrinkCard";
 
+const RANDOM_URL: string = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+
 export default function RandomChoice({
     side,
     focusSide,
@@ -27,9 +29,7 @@ export default function RandomChoice({
     // Fetch a random drink. Set this component as the main focus of the container on the page.
     async function fetchRandomDrink(): Promise<void> {
         try {
-            const response = await axios.get(
-                "https://www.thecocktaildb.com/api/json/v1/1/random.php"
-            );
+            const response = await axios.get(RANDOM_URL);
 
             setRandomDrink(response.data.drinks[0]);
 
@@ -67,15 +67,14 @@ export default function RandomChoice({
         Otherwise, display a neutral state.
     */
     return isShowingDrink && side == focusSide ? (
-        <section id="random-section" className={focusState}>
+        <section className={"random-section " + focusState}>
             <img id="drink-background-image" />
 
-            <section id="random-section-content">
+            <section className="random-section-content">
                 <DrinkCard drink={randomDrink} />
 
                 <button
-                    id="random-drink-button"
-                    className={buttonState}
+                    className={"random-drink-button " + buttonState}
                     onClick={() => fetchRandomDrink()}
                 >
                     New Random Drink
@@ -83,10 +82,9 @@ export default function RandomChoice({
             </section>
         </section>
     ) : (
-        <section id="random-section" className={focusState}>
+        <section className={"random-section " + focusState}>
             <button
-                id="random-drink-button"
-                className={buttonState}
+                className={"random-drink-button " + buttonState}
                 onClick={() => fetchRandomDrink()}
             >
                 Random

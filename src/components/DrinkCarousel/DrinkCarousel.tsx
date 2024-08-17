@@ -73,7 +73,7 @@ export default function DrinkCarousel({ drinks }: DrinkCarouselProps) {
     ) : (
         <>
             <div className="container">
-                <div id="drink-background-blur"></div>
+                <div className="drink-background-blur"></div>
                 <button
                     id="previous-drink-button"
                     className="cycle-button"

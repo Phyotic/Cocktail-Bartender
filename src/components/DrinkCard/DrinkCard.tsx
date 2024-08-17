@@ -29,7 +29,7 @@ export default function DrinkCard({ drink }: { drink: Drink | null }) {
         let ingProp: string = strIng + i;
         let value: string | null = drink[ingProp as keyof Drink];
 
-        if (value === null) {
+        if (value === null || value == "") {
             break;
         }
 

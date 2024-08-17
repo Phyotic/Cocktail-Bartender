@@ -1,28 +1,21 @@
-.minimized-bottom-section {
-}
-
-#search-section {
+.search-section {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-
     background-image: url(/src/assets/drink_6.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-
     transition: all 0.1s ease-in-out;
 }
 
-#search-section-with-drink-card {
+.search-section-with-drink-card {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex: 2;
-
-    /*TODO: Edit background*/
     background-image: url(/src/assets/drink_6.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -31,13 +24,9 @@
     transition: all 0.3s ease-in-out;
 }
 
-#search-section:hover {
+.search-section:hover {
     border-style: inset;
     box-shadow: -5px 0px 30px black;
-}
-
-#search-section h1 {
-    color: black;
 }
 
 .minimized-choice-button {
@@ -61,5 +50,3 @@
 .focused-bottom-section {
     width: 90%;
 }
-
-/* #search-drink-button.mi */

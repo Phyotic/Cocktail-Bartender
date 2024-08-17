@@ -34,13 +34,13 @@ export default function SearchChoice({
 
     //If this side has focus, display the form and the drink carousel
     return side == focusSide ? (
-        <section id="search-section-with-drink-card" className={focusState}>
+        <section className={"search-section-with-drink-card " + focusState}>
             <SearchForm buttonState={buttonState} setSearchedDrinks={setSearchedDrinks} />
 
             <DrinkCarousel drinks={searchedDrinks} />
         </section>
     ) : (
-        <section id="search-section" className={focusState}>
+        <section className={"search-section " + focusState}>
             <button
                 id="search-drink-button"
                 className={buttonState}
