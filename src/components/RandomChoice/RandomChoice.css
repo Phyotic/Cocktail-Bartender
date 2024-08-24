@@ -11,7 +11,7 @@
 .random-section.neutral-bottom-section:hover,
 .random-section.minimized-bottom-section:hover {
     border-style: inset;
-    box-shadow: -5px 0px 30px black;
+    box-shadow: -5px 0 30px black;
 }
 
 .random-section-content {

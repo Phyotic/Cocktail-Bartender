@@ -5,7 +5,8 @@
 }
 
 :root {
-    font-family: "Nunito", sans-serif;
+    font-family: Nunito, sans-serif;
+
     --charcoal: #264653;
     --persian-green: #2a9d8f;
     --saffron: #e9c46a;
@@ -44,7 +45,7 @@ body {
 }
 
 .text-styling {
-    text-shadow: rgb(0, 0, 0) 1px 0 10px;
+    text-shadow: rgb(0 0 0) 1px 0 10px;
     color: white;
 }
 
@@ -53,9 +54,11 @@ body {
     0% {
         bottom: -10px;
     }
+
     50% {
         bottom: 30px;
     }
+
     100% {
         bottom: -10px;
     }
@@ -109,7 +112,7 @@ body {
     flex-direction: column;
     width: 100%;
     height: 100vh;
-    background-image: url(/src/assets/drinks_2.jpg);
+    background-image: url("/src/assets/drinks_2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -153,7 +156,7 @@ body {
     overflow: hidden;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width >= 600px) {
     #hero-image h1 {
         font-size: 6rem;
     }

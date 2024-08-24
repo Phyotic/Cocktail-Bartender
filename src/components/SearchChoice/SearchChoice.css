@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(/src/assets/drink_6.jpg);
+    background-image: url("/src/assets/drink_6.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -15,7 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(/src/assets/drink_6.jpg);
+    background-image: url("/src/assets/drink_6.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -25,7 +25,7 @@
 
 .search-section:hover {
     border-style: inset;
-    box-shadow: -5px 0px 30px black;
+    box-shadow: -5px 0 30px black;
 }
 
 .minimized-choice-button:hover {

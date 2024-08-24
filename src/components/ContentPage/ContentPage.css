@@ -1,14 +1,16 @@
 .focused-bottom-section {
     flex: 1 1 90%;
+    transition: flex-grow 1s ease-in-out;
 }
 
 .neutral-bottom-section {
     flex: 1 1 100%;
-    background-image: url(/src/assets/drinks_3.jpg);
+    background-image: url("/src/assets/drinks_3.jpg");
 }
 
 .minimized-bottom-section {
     flex: 1 5 10%;
-    background-image: url(/src/assets/drinks_3.jpg);
+    background-image: url("/src/assets/drinks_3.jpg");
     max-width: 10%;
+    transition: flex 1s ease-in-out;
 }
