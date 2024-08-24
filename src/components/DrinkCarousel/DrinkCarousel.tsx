@@ -20,13 +20,13 @@ export default function DrinkCarousel({ drinks }: DrinkCarouselProps) {
     useEffect(() => {
         if (currentDrinkIndex != null) {
             let curDrinkThumb: string = drinks[currentDrinkIndex].strDrinkThumb;
-            // console.log(curDrinkThumb);
-            let element: HTMLElement | null = document.getElementById(
+            let element: Element | null = document.getElementsByClassName(
                 "drink-background-blur"
-            );
+            )[0];
 
             if (element != null) {
-                element.style.backgroundImage = "url('" + curDrinkThumb + "')";
+                (element as HTMLElement).style.backgroundImage =
+                    "url('" + curDrinkThumb + "')";
             }
         }
     }, [currentDrinkIndex]);

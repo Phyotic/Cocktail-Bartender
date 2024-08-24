@@ -4,12 +4,12 @@ export default function App() {
     return (
         <>
             <section id="hero-image">
-                <h1>Cocktail Bartender</h1>
-                <h2>Your personal teacher</h2>
+                <h1 className="text-styling">Cocktail Bartender</h1>
+                <h2 className="text-styling">Your personal teacher</h2>
 
                 <div id="arrow-pointer-container">
                     <div id="arrow-pointer-content">
-                        <h2>Start Learning</h2>
+                        <h2 className="text-styling">Start Learning</h2>
                         <a id="arrow-link" href="#bottom-section">
                             <img
                                 className="animate-bounce"

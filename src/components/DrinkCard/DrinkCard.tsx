@@ -67,15 +67,26 @@ export default function DrinkCard({ drink }: { drink: Drink | null }) {
             <section className="drink-card">
                 <section className="drink-info">
                     <picture>
-                        <img id="drink-image" src={imageURL} alt={name}></img>
+                        <img
+                            id="drink-image"
+                            className="animate-fade-in"
+                            src={imageURL}
+                            alt={name}
+                        ></img>
                     </picture>
-                    <p>{name}</p>
+                    <p id="drink-name" className="animate-fade-in">
+                        {name}
+                    </p>
                 </section>
 
                 <section className="drink-ingredients">
                     <ul>
-                        {measureAndIng.map((item) => (
-                            <li key={item} className="ingredient">
+                        {measureAndIng.map((item, index) => (
+                            <li
+                                key={item}
+                                className="ingredient animate-fade-in"
+                                style={{ animationDelay: `${index * 0.2}s` }}
+                            >
                                 {item}
                             </li>
                         ))}

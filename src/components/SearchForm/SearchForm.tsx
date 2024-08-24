@@ -45,6 +45,7 @@ export default function SearchForm({ buttonState, setSearchedDrinks }: SearchFor
                 <div className="input-label-pair">
                     <label htmlFor="search-drink-name">Drink Name</label>
                     <input
+                        id="search-drink-name"
                         type="text"
                         placeholder="Margarita"
                         onChange={(e) =>

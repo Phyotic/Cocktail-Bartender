@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FOCUSTYPE } from "../ContentPage/ContentPage";
 import RandomChoiceProps from "../RandomChoice/RandomChoiceProps";
 import "./SearchChoice.css";
+import "../ContentPage/ContentPage.css";
 import SearchForm from "../SearchForm/SearchForm";
 import DrinkCarousel from "../DrinkCarousel/DrinkCarousel";
 

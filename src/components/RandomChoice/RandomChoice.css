@@ -2,13 +2,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 40% 50%;
-
     transition: all 0.3s ease-in-out;
+
+    /* height: 100vh; */
+    /* width: 100%; */
 }
 
 .random-section.neutral-bottom-section:hover,
@@ -35,20 +35,6 @@
     background-position: 50% 50%;
 }
 
-.focused-bottom-section {
-    width: 90%;
-}
-
-.neutral-bottom-section {
-    width: 50%;
-    background-image: url(/src/assets/drinks_3.jpg);
-}
-
-.minimized-bottom-section {
-    width: 10%;
-    background-image: url(/src/assets/drinks_3.jpg);
-}
-
 .focused-choice-button {
     letter-spacing: 0.5rem;
     font-weight: 700;
@@ -66,8 +52,8 @@
     opacity: 1;
 }
 
-.random-drink-button.minimized-choice-button {
-    transform: rotate(270deg);
+.minimized-choice-button {
+    transform: rotate(90deg);
     letter-spacing: 2rem;
     font-weight: 700;
     font-size: 10vh;
