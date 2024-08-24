@@ -43,6 +43,11 @@ body {
     box-shadow: 10px 10px 30px black;
 }
 
+.text-styling {
+    text-shadow: rgb(0, 0, 0) 1px 0 10px;
+    color: white;
+}
+
 /* Animations */
 @keyframes bounce {
     0% {
@@ -56,11 +61,46 @@ body {
     }
 }
 
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
 .animate-bounce {
     animation-name: bounce;
     animation-duration: 2s;
     animation-fill-mode: backwards;
     animation-iteration-count: infinite;
+}
+
+.animate-fade-out {
+    animation-name: fade-out;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+}
+
+.animate-fade-in {
+    animation-name: fade-in;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+    animation-delay: 0.5s;
 }
 
 /* == Hero Image Section == */
@@ -73,7 +113,6 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    opacity: 0.7;
     text-align: center;
 }
 

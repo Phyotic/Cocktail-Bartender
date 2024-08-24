@@ -35,7 +35,7 @@ picture {
 #drink-image {
     border-radius: 50%;
     background-color: white;
-    border: 1rem solid grey;
+    border: 10px solid grey;
     height: 70%;
 }
 
@@ -48,13 +48,11 @@ picture {
     padding-left: 2%;
     align-self: center;
     font-weight: 700;
-    height: 100%;
     overflow: auto;
     text-shadow: rgb(0, 0, 0) 1px 0 10px;
 }
 
 ul {
-    /* text-align: center; */
     height: 100%;
     align-content: center;
 }
@@ -65,18 +63,15 @@ ul {
 
 li {
     list-style-type: none;
-    text-shadow: 3px solid red;
     border-bottom: 1px solid white;
 }
 
 #no-drink-selected {
-    /* border: 2px solid blue; */
     width: 70%;
     height: 100%;
     align-content: center;
     justify-content: center;
     padding: 5%;
-
     background-image: url("../../assets/anonymous-drink-2.jpg");
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -90,6 +85,15 @@ li {
     color: white;
     font-weight: 700;
     font-size: 2rem;
-
     text-shadow: 0px 0px 13px pink;
+}
+
+@media screen and (max-width: 1300px) {
+    #drink-image {
+        transform: scale(0.7);
+    }
+
+    .drink-info {
+        width: calc(100px + 20vw);
+    }
 }
