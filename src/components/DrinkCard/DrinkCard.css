@@ -48,7 +48,6 @@ picture {
     padding-left: 2%;
     align-self: center;
     font-weight: 700;
-    /* height: 100vh; */
     overflow: auto;
     text-shadow: rgb(0, 0, 0) 1px 0 10px;
 }
@@ -60,7 +59,6 @@ ul {
 
 .ingredient {
     font-size: 3.1rem;
-    /* width: 150%; */
 }
 
 li {

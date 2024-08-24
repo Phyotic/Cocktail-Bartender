@@ -18,14 +18,37 @@ export default function RandomChoice({
 
     //Set the background image of the random section card to a blurred drink image.
     useEffect(() => {
-        let element: HTMLElement | null = document.getElementById(
-            "drink-background-image"
+        let elementOld: HTMLElement | null = document.getElementById(
+            "drink-background-image-old"
+        );
+        let elementNew: HTMLElement | null = document.getElementById(
+            "drink-background-image-new"
         );
 
-        element != null && randomDrink !== null
-            ? (element.style.backgroundImage = "url('" + randomDrink.strDrinkThumb + "')")
-            : "";
+        if (elementOld != null && elementNew != null && randomDrink != null) {
+            let newImage = `url('${randomDrink.strDrinkThumb}')`;
+
+            elementNew.style.backgroundImage = newImage;
+            elementOld.classList.add("animate-fade-out");
+            elementNew.classList.add("animate-fade-in");
+            elementNew.addEventListener("animationend", () => {
+                cleanUpBackgroundImages(elementOld, elementNew, newImage);
+            });
+        }
     }, [randomDrink]);
+
+    function cleanUpBackgroundImages(
+        elementOld: HTMLElement,
+        elementNew: HTMLElement,
+        newImage: string
+    ) {
+        if (elementOld != null && elementNew != null) {
+            elementOld.style.backgroundImage = newImage;
+            elementOld.classList.remove("animate-fade-out");
+            elementNew.classList.remove("animate-fade-in");
+            elementNew.style.opacity = "0";
+        }
+    }
 
     //Creates fade out animation for each ingredient, then calls cascadeAnimations.
     function handleClick(): void {
@@ -127,7 +150,8 @@ export default function RandomChoice({
     */
     return isShowingDrink && side == focusSide ? (
         <section className={"random-section " + focusState}>
-            <img id="drink-background-image" />
+            <img id="drink-background-image-old" />
+            <img id="drink-background-image-new" />
 
             <section className="random-section-content">
                 <DrinkCard drink={randomDrink} />

@@ -28,6 +28,11 @@
     background-color: gray;
 }
 
+.cycle-button:active {
+    opacity: 1;
+    background-color: var(--sandy-brown);
+}
+
 .flipped {
     transform: rotate(180deg);
 }

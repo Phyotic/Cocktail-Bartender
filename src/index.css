@@ -102,6 +102,7 @@ body {
     animation-fill-mode: both;
     animation-delay: 0.5s;
 }
+
 /* == Hero Image Section == */
 #hero-image {
     display: flex;
