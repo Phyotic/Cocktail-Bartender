@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { FOCUSTYPE } from "../ContentPage/ContentPage";
-import RandomChoiceProps from "../RandomChoice/RandomChoiceProps";
 import "./SearchChoice.css";
 import "../ContentPage/ContentPage.css";
 import SearchForm from "../SearchForm/SearchForm";
 import DrinkCarousel from "../DrinkCarousel/DrinkCarousel";
+import SearchChoiceProps from "./SearchChoiceProps";
 
 export default function SearchChoice({
     side,
     focusSide,
     setFocusSide,
-}: RandomChoiceProps) {
+}: SearchChoiceProps) {
     //All drinks returned from the search.
     let [searchedDrinks, setSearchedDrinks] = useState<Drink[]>([]);
 
@@ -33,7 +33,6 @@ export default function SearchChoice({
         buttonState = "minimized-choice-button";
     }
 
-    //If this side has focus, display the form and the drink carousel
     return side == focusSide ? (
         <section className={"search-section-with-drink-card " + focusState}>
             <SearchForm buttonState={buttonState} setSearchedDrinks={setSearchedDrinks} />

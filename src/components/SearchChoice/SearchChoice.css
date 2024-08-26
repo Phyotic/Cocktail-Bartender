@@ -1,3 +1,4 @@
+/* Neutral state */
 .search-section {
     height: 100vh;
     display: flex;
@@ -10,6 +11,12 @@
     transition: all 0.1s ease-in-out;
 }
 
+.search-section:hover {
+    border-style: inset;
+    box-shadow: -5px 0 30px black;
+}
+
+/* Focused state */
 .search-section-with-drink-card {
     height: 100vh;
     display: flex;
@@ -23,11 +30,7 @@
     transition: all 0.3s ease-in-out;
 }
 
-.search-section:hover {
-    border-style: inset;
-    box-shadow: -5px 0 30px black;
-}
-
+/* Minimized state */
 .minimized-choice-button:hover {
     color: darkgray;
     opacity: 1;
