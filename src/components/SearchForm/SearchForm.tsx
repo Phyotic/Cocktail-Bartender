@@ -14,7 +14,7 @@ export default function SearchForm({ buttonState, setSearchedDrinks }: SearchFor
     //Form data values
     let [userInput, setUserInput] = useState<FormData>({ drinkName: "" });
 
-    //onSubmit handler, set a default of margarita if empty.
+    //Set a default of margarita if empty, call searchForDrink.
     function handleOnSubmit(event: SyntheticEvent) {
         event.preventDefault();
         let name: string = userInput.drinkName;
