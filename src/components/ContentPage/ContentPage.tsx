@@ -8,6 +8,8 @@ export enum FOCUSTYPE {
     NONE = "none",
 }
 
+export const ANIMATION_DELAY_SYNC: number = 200;
+
 export default function ContentPage() {
     let [focusSide, setFocusSide] = useState<FOCUSTYPE>(FOCUSTYPE.NONE);
 

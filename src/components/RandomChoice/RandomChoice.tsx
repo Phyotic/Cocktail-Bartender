@@ -5,9 +5,9 @@ import "../ContentPage/ContentPage.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import DrinkCard from "../DrinkCard/DrinkCard";
+import { ANIMATION_DELAY_SYNC } from "../ContentPage/ContentPage";
 
 const RANDOM_API_URL: string = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
-const ANIMATION_DELAY_SYNC: number = 200;
 
 export default function RandomChoice({
     side,
@@ -17,41 +17,6 @@ export default function RandomChoice({
     let [randomDrink, setRandomDrink] = useState<Drink | null>(null);
     let [isFadingOut, setIsFadingOut] = useState<boolean>(false);
     let [ingredientCount, setIngredientCount] = useState<number>(0);
-
-    //Set the new image, fade-out the old image, and fade-in the new image. Call cleanUpBackgroundImages.
-    useEffect(() => {
-        let elementOld: HTMLElement | null = document.getElementById(
-            "drink-background-image-old"
-        );
-        let elementNew: HTMLElement | null = document.getElementById(
-            "drink-background-image-new"
-        );
-
-        if (elementOld != null && elementNew != null && randomDrink != null) {
-            let newImage = `url('${randomDrink.strDrinkThumb}')`;
-
-            elementNew.style.backgroundImage = newImage;
-            elementOld.classList.add("animate-fade-out");
-            elementNew.classList.add("animate-fade-in");
-            elementNew.addEventListener("animationend", () => {
-                cleanUpBackgroundImages(elementOld, elementNew, newImage);
-            });
-        }
-    }, [randomDrink]);
-
-    //Set the old image to the new image and fade out the new image.
-    function cleanUpBackgroundImages(
-        elementOld: HTMLElement,
-        elementNew: HTMLElement,
-        newImage: string
-    ) {
-        if (elementOld != null && elementNew != null) {
-            elementOld.style.backgroundImage = newImage;
-            elementOld.classList.remove("animate-fade-out");
-            elementNew.classList.remove("animate-fade-in");
-            elementNew.style.opacity = "0";
-        }
-    }
 
     //Fades out drink card, calls fetchRandomDrink, and then fades in new drink card.
     async function handleClick(): Promise<void> {

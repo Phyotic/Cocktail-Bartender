@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./DrinkCard.css";
 import DrinkCardProps from "./DrinkCardProps";
 
@@ -12,6 +13,41 @@ export default function DrinkCard({
     isFadingOut,
     animationTiming,
 }: DrinkCardProps) {
+    //Set the new image, fade-out the old image, and fade-in the new image. Call cleanUpBackgroundImages.
+    useEffect(() => {
+        let elementOld: HTMLElement | null = document.getElementById(
+            "drink-background-image-old"
+        );
+        let elementNew: HTMLElement | null = document.getElementById(
+            "drink-background-image-new"
+        );
+
+        if (elementOld != null && elementNew != null && drink != null) {
+            let newImage = `url('${drink.strDrinkThumb}')`;
+
+            elementNew.style.backgroundImage = newImage;
+            elementOld.classList.add("animate-fade-out");
+            elementNew.classList.add("animate-fade-in");
+            elementNew.addEventListener("animationend", () => {
+                cleanUpBackgroundImages(elementOld, elementNew, newImage);
+            });
+        }
+    }, [drink]);
+
+    //Set the old image to the new image and fade out the new image.
+    function cleanUpBackgroundImages(
+        elementOld: HTMLElement,
+        elementNew: HTMLElement,
+        newImage: string
+    ) {
+        if (elementOld != null && elementNew != null) {
+            elementOld.style.backgroundImage = newImage;
+            elementOld.classList.remove("animate-fade-out");
+            elementNew.classList.remove("animate-fade-in");
+            elementNew.style.opacity = "0";
+        }
+    }
+
     //Check for a null drink.
     if (drink == null) {
         return (
@@ -73,7 +109,6 @@ export default function DrinkCard({
                 <img id="drink-background-image-old" />
                 <img id="drink-background-image-new" />
 
-                {/* <section className="random-section-content"></section> */}
                 <section className="drink-card">
                     <section className="drink-info">
                         <picture>
