@@ -7,6 +7,7 @@ import { ANIMATION_DELAY_SYNC } from "../ContentPage/ContentPage";
 export default function DrinkCarousel({ drinks }: DrinkCarouselProps) {
     //Pointer to current drink in the drinks list.
     let [currentDrinkIndex, setCurrentDrinkIndex] = useState<number | null>(null);
+    //Determine fade-out (true) and fade-in (false) animations.
     let [isFadingOut, setIsFadingOut] = useState<boolean>(false);
 
     //The different directions to go through.
@@ -15,7 +16,7 @@ export default function DrinkCarousel({ drinks }: DrinkCarouselProps) {
         RIGHT,
     }
 
-    //Reset the pointer to the drinks list if possible, otherwise it is null.
+    //Reset the pointer to the drinks list if possible when a new drink list detected.
     useEffect(() => {
         if (drinks != null && drinks.length != 0) {
             setCurrentDrinkIndex(0);
@@ -24,7 +25,7 @@ export default function DrinkCarousel({ drinks }: DrinkCarouselProps) {
         }
     }, [drinks]);
 
-    //Fade out ingredients set the current drink index based on direction.
+    //Play fade-out animations, set the current drink index based on direction, and fade-in new data.
     function handleButtonClick(dir: Direction) {
         setIsFadingOut(true);
 
