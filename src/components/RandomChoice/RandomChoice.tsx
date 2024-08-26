@@ -6,17 +6,19 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import DrinkCard from "../DrinkCard/DrinkCard";
 
-const RANDOM_URL: string = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+const RANDOM_API_URL: string = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+const ANIMATION_DELAY_SYNC: number = 200;
 
 export default function RandomChoice({
     side,
     focusSide,
     setFocusSide,
 }: RandomChoiceProps) {
-    let [isShowingDrink, setShowingDrink] = useState<boolean>(false);
     let [randomDrink, setRandomDrink] = useState<Drink | null>(null);
+    let [isFadingOut, setIsFadingOut] = useState<boolean>(false);
+    let [ingredientCount, setIngredientCount] = useState<number>(0);
 
-    //Set the background image of the random section card to a blurred drink image.
+    //Set the new image, fade-out the old image, and fade-in the new image. Call cleanUpBackgroundImages.
     useEffect(() => {
         let elementOld: HTMLElement | null = document.getElementById(
             "drink-background-image-old"
@@ -37,6 +39,7 @@ export default function RandomChoice({
         }
     }, [randomDrink]);
 
+    //Set the old image to the new image and fade out the new image.
     function cleanUpBackgroundImages(
         elementOld: HTMLElement,
         elementNew: HTMLElement,
@@ -50,64 +53,17 @@ export default function RandomChoice({
         }
     }
 
-    //Creates fade out animation for each ingredient, then calls cascadeAnimations.
-    function handleClick(): void {
-        let ingredients: HTMLCollection = document.getElementsByClassName("ingredient");
-        if (ingredients != null) {
-            for (let i: number = ingredients.length - 1; i >= 0; i--) {
-                let ingredient: Element = ingredients[i];
-                ingredient.classList.remove("animate-fade-in");
-                ingredient.classList.add("animate-fade-out");
+    //Fades out drink card, calls fetchRandomDrink, and then fades in new drink card.
+    async function handleClick(): Promise<void> {
+        setIsFadingOut(true);
 
-                if (i == 0) {
-                    setTimeout(() => {
-                        cascadeAnimations();
-                    }, ingredients.length * 200);
-                }
-            }
-        }
-    }
+        setTimeout(() => {
+            fetchRandomDrink();
+        }, ingredientCount * ANIMATION_DELAY_SYNC);
 
-    //Creates fade out animation for img and drink name, then calls handleAnimationEnd.
-    function cascadeAnimations() {
-        let img: HTMLElement | null = document.getElementById("drink-image");
-        if (img != null) {
-            img.classList.remove("animate-fade-in");
-
-            let name: HTMLElement | null = document.getElementById("drink-name");
-            if (name) {
-                name.classList.remove("animate-fade-in");
-                name.classList.add("animate-fade-out");
-                setTimeout(() => {
-                    img.addEventListener("animationend", handleAnimationEnd);
-                    img.classList.add("animate-fade-out");
-                }, 0.5);
-            }
-        }
-    }
-
-    //Calls fetchRandomDrink and manages fade-out/fade-in after next drink is fetched.
-    async function handleAnimationEnd(): Promise<void> {
-        let img: HTMLElement | null = document.getElementById("drink-image");
-        let name: HTMLElement | null = document.getElementById("drink-name");
-
-        if (img != null) {
-            img.removeEventListener("animationend", handleAnimationEnd);
-
-            if (name != null) {
-                name.classList.remove("animate-fade-in");
-                void name.offsetWidth;
-                name.classList.add("animate-fade-in");
-            }
-
-            img.style.visibility = "hidden";
-
-            await fetchRandomDrink();
-
-            img.style.visibility = "visible";
-            img.classList.remove("animate-fade-out");
-            img.classList.add("animate-fade-in");
-        }
+        setTimeout(() => {
+            setIsFadingOut(false);
+        }, ingredientCount * ANIMATION_DELAY_SYNC + 100);
     }
 
     // Fetch a random drink. Set this component as the main focus of the container on the page.
@@ -117,11 +73,24 @@ export default function RandomChoice({
                 setFocusSide(side);
             }
 
-            const response = await axios.get(RANDOM_URL);
-            setRandomDrink(response.data.drinks[0]);
-            setShowingDrink(true);
+            const response = await axios.get(RANDOM_API_URL);
+            let drink: Drink = response.data.drinks[0];
+
+            let ingreCount: number = 0;
+            for (let i: number = 1; i <= 15; i++) {
+                let str: string = "strIngredient" + i;
+
+                if (drink[str as keyof Drink] == null) {
+                    break;
+                } else {
+                    ingreCount++;
+                }
+            }
+
+            setIngredientCount(ingreCount);
+            setRandomDrink(drink);
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     }
 
@@ -145,24 +114,22 @@ export default function RandomChoice({
     }
 
     /*
-        If showing a drink and this has focus, display the drink card info.
+        If this component has the main focus, display the DrinkCard component.
         Otherwise, display a neutral state.
     */
-    return isShowingDrink && side == focusSide ? (
-        <section className={"random-section " + focusState}>
-            <img id="drink-background-image-old" />
-            <img id="drink-background-image-new" />
-
-            <section className="random-section-content">
-                <DrinkCard drink={randomDrink} />
-
-                <button
-                    className={"random-drink-button " + buttonState}
-                    onClick={() => handleClick()}
-                >
-                    New Random Drink
-                </button>
-            </section>
+    return side == focusSide ? (
+        <section className={"drink-card-with-button " + focusState}>
+            <DrinkCard
+                drink={randomDrink}
+                isFadingOut={isFadingOut}
+                animationTiming={ANIMATION_DELAY_SYNC}
+            />
+            <button
+                className={"random-drink-button " + buttonState}
+                onClick={() => handleClick()}
+            >
+                New Random Drink
+            </button>
         </section>
     ) : (
         <section className={"random-section " + focusState}>

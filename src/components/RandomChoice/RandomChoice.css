@@ -5,20 +5,12 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 40% 50%;
-    transition: all 0.3s ease-in-out;
 }
 
 .random-section.neutral-bottom-section:hover,
 .random-section.minimized-bottom-section:hover {
     border-style: inset;
     box-shadow: -5px 0 30px black;
-}
-
-.random-section-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
 }
 
 #drink-background-image-old,
@@ -47,7 +39,7 @@
     font-weight: 700;
     font-size: 2rem;
     padding: 2% 5%;
-    background-color: transparent;
+    background-color: rgb(100 97 101 / 68%);
     color: white;
     border: none;
     opacity: 0.7;
@@ -69,4 +61,35 @@
     padding: 2% 50%;
     border: none;
     opacity: 0.7;
+}
+
+.drink-card-with-button {
+    display: flex;
+    flex-direction: column;
+}
+
+.focused-choice-button {
+    align-self: end;
+    width: 100%;
+}
+
+.random-drink-button.focused-choice-button {
+    background-image: url("/src/assets/drinks_3.jpg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    letter-spacing: 2rem;
+    font-weight: 700;
+    font-size: 5vh;
+}
+
+.random-drink-button.focused-choice-button:hover {
+    color: darkgray;
+    transition: all 0.1s ease-in 0s;
+    border-width: 3px;
+    border-style: inset;
+}
+
+.random-drink-button.focused-choice-button:active {
+    color: var(--saffron);
+    border-color: var(--saffron);
 }
