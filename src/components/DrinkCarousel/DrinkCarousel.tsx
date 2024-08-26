@@ -7,6 +7,7 @@ import { ANIMATION_DELAY_SYNC } from "../ContentPage/ContentPage";
 export default function DrinkCarousel({ drinks }: DrinkCarouselProps) {
     //Pointer to current drink in the drinks list.
     let [currentDrinkIndex, setCurrentDrinkIndex] = useState<number | null>(null);
+
     //Determine fade-out (true) and fade-in (false) animations.
     let [isFadingOut, setIsFadingOut] = useState<boolean>(false);
 
