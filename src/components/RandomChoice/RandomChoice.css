@@ -1,3 +1,4 @@
+/* Neutral state */
 .random-section {
     display: flex;
     justify-content: center;
@@ -13,44 +14,7 @@
     box-shadow: -5px 0 30px black;
 }
 
-#drink-background-image-old,
-#drink-background-image-new {
-    position: absolute;
-    background-color: transparent;
-    z-index: -1;
-    filter: blur(10px);
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: 50% 50%;
-    transition: opacity 1s ease-in-out;
-}
-
-#drink-background-image-old {
-    opacity: 1;
-}
-
-#drink-background-image-new {
-    opacity: 0;
-}
-
-.focused-choice-button {
-    letter-spacing: 0.5rem;
-    font-weight: 700;
-    font-size: 2rem;
-    padding: 2% 5%;
-    background-color: rgb(100 97 101 / 68%);
-    color: white;
-    border: none;
-    opacity: 0.7;
-}
-
-.focused-choice-button:hover {
-    cursor: pointer;
-    box-shadow: 10px 10px 30px black;
-    opacity: 1;
-}
-
+/* Minimized state */
 .minimized-choice-button {
     transform: rotate(90deg);
     letter-spacing: 2rem;
@@ -63,14 +27,29 @@
     opacity: 0.7;
 }
 
+/* Focused state */
 .drink-card-with-button {
     display: flex;
     flex-direction: column;
 }
 
 .focused-choice-button {
+    letter-spacing: 0.5rem;
+    font-weight: 700;
+    font-size: 2rem;
+    padding: 2% 5%;
+    background-color: rgb(100 97 101 / 68%);
+    color: white;
+    border: none;
+    opacity: 0.7;
     align-self: end;
     width: 100%;
+}
+
+.focused-choice-button:hover {
+    cursor: pointer;
+    box-shadow: 10px 10px 30px black;
+    opacity: 1;
 }
 
 .random-drink-button.focused-choice-button {

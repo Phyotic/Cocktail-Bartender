@@ -2,7 +2,7 @@ import { FOCUSTYPE } from "../ContentPage/ContentPage";
 import RandomChoiceProps from "./RandomChoiceProps";
 import "./RandomChoice.css";
 import "../ContentPage/ContentPage.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import DrinkCard from "../DrinkCard/DrinkCard";
 import { ANIMATION_DELAY_SYNC } from "../ContentPage/ContentPage";
@@ -14,8 +14,13 @@ export default function RandomChoice({
     focusSide,
     setFocusSide,
 }: RandomChoiceProps) {
+    //Current drink.
     let [randomDrink, setRandomDrink] = useState<Drink | null>(null);
+
+    //Determine if fade-out (true) animations should play or fade-in (false).
     let [isFadingOut, setIsFadingOut] = useState<boolean>(false);
+
+    //Number of ingredients in current drink. Used to determine staggered animations.
     let [ingredientCount, setIngredientCount] = useState<number>(0);
 
     //Fades out drink card, calls fetchRandomDrink, and then fades in new drink card.
@@ -31,7 +36,7 @@ export default function RandomChoice({
         }, ingredientCount * ANIMATION_DELAY_SYNC + 100);
     }
 
-    // Fetch a random drink. Set this component as the main focus of the container on the page.
+    //Fetch a random drink. Set this component as the main focus of the container on the page.
     async function fetchRandomDrink(): Promise<void> {
         try {
             if (side != focusSide) {
