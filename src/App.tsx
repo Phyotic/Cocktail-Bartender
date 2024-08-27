@@ -5,11 +5,11 @@ export default function App() {
         <>
             <section id="hero-image">
                 <h1 className="text-styling">Cocktail Bartender</h1>
-                <h2 className="text-styling">Your personal teacher</h2>
+                <h2 className="text-styling">A cocktail library</h2>
 
                 <div id="arrow-pointer-container">
                     <div id="arrow-pointer-content">
-                        <h2 className="text-styling">Start Learning</h2>
+                        <h2 className="text-styling">View Cocktails</h2>
                         <a id="arrow-link" href="#bottom-section">
                             <img
                                 className="animate-bounce"
