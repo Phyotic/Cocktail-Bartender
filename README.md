@@ -1,13 +1,15 @@
-# Cocktail Bartender
+# **Cocktail Bartender**
 
-A Cocktail lookup application built using TypeScript and the React framework. Provides a simple and animated interface. Uses [thecocktaildb](https://www.thecocktaildb.com/api.php) to query for cocktails.
+This repository showcases a cocktail lookup application built using TypeScript and the React framework. Provides a simple and animated interface. Uses [thecocktaildb](https://www.thecocktaildb.com/api.php) to query for cocktails.
 
-# Features
+The purpose of this repo is to demonstrate some proficiency with TypeScript and API calls. I will aslo further refine my HTML and CSS skills with heavy use of animations. 
 
--   Search for a random cocktail drink.
--   Search for a cocktail drink based on a specified name.
+# **Features**
 
-# Technologies Used
+- **Random Cocktail**: Query thecocktaildb for a random cocktail drink and smoothly transition from each query.
+- **Search a Cocktail**: Query thecocktaildb for a cocktail drink based on a specified name and smoothly transition from drink to drink in a carousel style container.
+
+# **Technologies Used**
 
 -   JavaScript
 -   HTML
