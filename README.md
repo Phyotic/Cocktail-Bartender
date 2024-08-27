@@ -18,25 +18,20 @@ A Cocktail lookup application built using TypeScript and the React framework. Pr
 
 # Screenshots
 
-<figure>
-<img src="https://i.imgur.com/rLXK54G.gif"></img>
-<figcaption>Landing Page</figcaption>
-</figure>
+<img src="https://i.imgur.com/rQXgltM.jpeg" width="50%"></img>
+<img src="https://i.imgur.com/Ye6Cyf3.jpeg" width="50%"></img>
 
-<figure>
-<img src="https://i.imgur.com/fCeUPW2.gif"></img>
-<figcaption>Retrieving a random drink.</figcaption>
-</figure>
+Landing Page and content section. [Animation Link](https://i.imgur.com/rLXK54G.gif)
 
-<figure>
-<img src="https://i.imgur.com/cUp33vE.gif"></img>
-<figcaption>Searching for a drink.</figcaption>
-</figure>
+<img src="https://i.imgur.com/A1JPRHS.jpeg"></img>
 
-<figure>
-<img src="https://i.imgur.com/aFls3cF.gif"></img>
-<figcaption>Switching through carousel.</figcaption>
-</figure>
+Retrieving a random drink. [Animation Link](https://i.imgur.com/fCeUPW2.gif)
+
+<img src="https://i.imgur.com/BqeMaJl.jpeg"></img>
+Searching for a drink. [Animation Link](https://i.imgur.com/cUp33vE.gif)
+
+<img src="https://i.imgur.com/ctDA07C.jpeg"></img>
+Switching through carousel. [Animation Link](https://i.imgur.com/aFls3cF.gif)
 
 # Code Samples
 
